@@ -39,7 +39,25 @@ const Reports = () => {
         else {
             setErrorMessage("Please enter your name!");
         }
-      };
+    };
+
+    const handeDeleteReport = (id) => {
+        axios.delete(`http://localhost:8080/reports/${id}`)
+        .then((res)=>{
+            axios.get("http://localhost:8080/reports")
+            .then((res) => {
+              setReports(res.data);
+              console.log(res.data);
+            })
+            .catch((error) => {
+              console.log("error", error);
+            });
+        })
+        .catch((error) => {
+            console.log("error", error)
+        })
+    }
+
       
 
     const closeModal = () => {
@@ -95,6 +113,11 @@ const Reports = () => {
                                     </div>
                                 ))}
                             </div>
+                        </div>
+                        <div className='delete-report'>
+                            <button type='button' className='btn' onClick={() => handeDeleteReport(report._id)}>
+                                Delete report
+                            </button>
                         </div>
                     </div>
                 ))}
