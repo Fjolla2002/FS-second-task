@@ -1,0 +1,83 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    
+    .content-modal {
+        background-color:#c7c2c2;
+        position: relative;
+        width: 70%;
+        max-height: 90vh;
+        padding: 30px 15px;
+        border-radius: 4px;
+
+        .close {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            padding: 10px;
+            border: 1px solid #0d0d57;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.4s ease-in-out;
+            background-color: transparent;
+
+            &:hover {
+                background-color: #0d0d57;
+                color: #fff;
+            }
+        }
+
+        .content {
+            form {
+                .input-field {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    span {
+                        margin: 10px 0;
+                        font-size: 20px;
+                    }
+
+                    input {
+                        padding: 10px;
+                        border-radius: 10px;
+                        border: 2px soild #000000;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .wrapper-modal {
+        background-color:transparent;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+.btn {
+    background-color: #0d0d57;
+    border: 1px solid #0d0d57;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: #3030b1;
+        border: 1px solid #3030b1;
+    }
+}

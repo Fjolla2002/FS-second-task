@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './reports.scss';
+import CreateReport from '../Modal/CreateReport';
 
 const Reports = () => {
     const [reports, setReports] = useState();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [usernameInput, setUsernameInput] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         axios.get("http://localhost:8080/reports")
@@ -17,7 +21,36 @@ const Reports = () => {
     },[])
 
     const handleCreateReport = () => {
+        if( usernameInput.length !== 0) {
+            axios.post("http://localhost:8080/reports", {
+            username: usernameInput,
+            tasks: [],
+            })
+            .then((res) => {
+            console.log(res.data);
+            setReports((prevReports) => [...prevReports, res.data]);
+            setErrorMessage('');
+            closeModal();
+            })
+            .catch((error) => {
+            console.error("Error creating report:", error);
+            });
+        }
+        else {
+            setErrorMessage("Please enter your name!");
+        }
+      };
+      
 
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setUsernameInput('');
+        setErrorMessage('');
+      };
+    
+    const handleUsernameChange = (event) => {
+        setUsernameInput(event.target.value);
+        console.log(event.target.value);
     };
 
   return (
@@ -25,7 +58,7 @@ const Reports = () => {
         <div className='content'>
             <h1>Reports</h1>
             <div className='create-report'>
-                <button className='btn' onClick={() => handleCreateReport()}>
+                <button className='btn' onClick={() => setIsModalOpen(true)}>
                     Create a new Report
                 </button>
             </div>
@@ -66,6 +99,15 @@ const Reports = () => {
                     </div>
                 ))}
             </div>
+            <CreateReport
+                isOpen={isModalOpen}
+                closeModal={closeModal}
+                handleCreateReport={handleCreateReport}
+                handleUsernameChange={handleUsernameChange}
+                usernameInput={usernameInput}
+                errorMessage={errorMessage}
+                label="Username"
+            />
         </div>
     </div>
   )
