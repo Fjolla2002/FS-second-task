@@ -13,10 +13,10 @@
     .content-modal {
         background-color:#c7c2c2;
         position: relative;
-        width: 70%;
+        width: 50%;
         max-height: 90vh;
         padding: 30px 15px;
-        border-radius: 4px;
+        border-radius: 8px;
 
         .close {
             position: absolute;
@@ -27,11 +27,11 @@
             border-radius: 5px;
             cursor: pointer;
             transition: all 0.4s ease-in-out;
-            background-color: transparent;
+            background-color: #0d0d57;
+            color: #fff;
 
             &:hover {
-                background-color: #0d0d57;
-                color: #fff;
+                background-color: #3030b1;
             }
         }
 
@@ -53,6 +53,19 @@
                         border: 2px soild #000000;
                         margin-bottom: 10px;
                     }
+
+                    input[type=checkbox] {
+                        width: 25px;
+                        height: 25px;
+                        border: 2px solid #0d0d57;
+                        border-radius: 8px;
+                        background-color: #fff;
+                    }
+                }
+
+                .error-message {
+                    color: #db1919;
+                    margin: 10px 0;
                 }
             }
         }
