@@ -1,0 +1,162 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+
+    .content {
+        padding: 50px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .create-report {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: flex-end;
+            margin-left: auto;
+            margin-bottom: 30px;
+        }
+
+        .all-reports {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 30px;
+            column-gap: 30px;
+
+            .single-report {
+                flex: 0 0 calc(33.33% - 30px);
+                box-shadow: 0 0 10px 0 rgba(128,128,128,0.5);
+                border-radius: 10px;
+                padding: 20px 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+
+                .report-row {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    margin: 10px 0;
+                    position: relative;
+
+                    span {
+                        margin-right: 10px;
+                    }
+
+                    .username {
+                        font-weight: bold;
+                        font-size: 20px;
+                    }
+
+                    .btn-small {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                    }
+                }
+
+                .tasks {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    border-top: 1px solid #0d0d57;
+
+                    .top-content {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        margin: 20px 0 10px 0;
+
+                        h5 {
+                            font-size: 18px;
+                        }
+        
+                    }
+
+                    .all-tasks {
+                        margin: 20px 0;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: center;
+                        width: 100%;
+
+                        .single-task {
+                            width: 100%;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-bottom: 10px;
+
+                            .finished {
+                                text-decoration: line-through;
+                            }
+
+                            .buttons {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+
+                                .btn-small {
+                                    margin-right: 10px;
+
+                                    &:last-child {
+                                        margin-right: 0px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+            }
+        }
+    }
+    .btn {
+        background-color: #0d0d57;
+        border: 1px solid #0d0d57;
+        color: #fff;
+        border-radius: 8px;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &.load-more {
+            margin: 50px 0;
+        }
+
+        &:hover {
+            background-color: #3030b1;
+            border: 1px solid #3030b1;
+        }
+    }
+    .btn-small {
+        background-color: #0d0d57;
+        border: 1px solid #0d0d57;
+        color: #fff;
+        border-radius: 5px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &.update {
+            transform: rotate(90deg);
+        }
+
+        &:hover {
+            background-color: #3030b1;
+            border: 1px solid #3030b1;
+        }
+    }
+}
